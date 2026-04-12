@@ -1,0 +1,147 @@
+powerline_v1 Directory Structure (配置和项目文件树)
+========================================================
+
+configs/powerline_v1/
+├── powerline_v1_r18_fpn.py
+└── powerline_v1_r18_fpn_debug.py
+
+projects/powerline_v1/
+├── __init__.py
+├── __pycache__/
+│   └── [Python cache files]
+├── datasets/
+│   ├── __init__.py
+│   ├── __pycache__/
+│   │   └── [Python cache files]
+│   ├── powerline_dataset.py
+│   ├── transforms/
+│   │   ├── __init__.py
+│   │   ├── __pycache__/
+│   │   │   └── [Python cache files]
+│   │   ├── formatting.py
+│   │   ├── geom_transforms.py
+│   │   └── loading.py
+│   └── TTPLA/
+│       ├── __pycache__/
+│       │   └── [Python cache files]
+│       ├── center/
+│       │   ├── train/
+│       │   │   └── [共1105个.png文件]
+│       │   │       (文件名示例: 04_2220.png, 04_3420.png, 04_585.png, ...等)
+│       │   └── val/
+│       │       └── [共91个.png文件]
+│       │           (文件名示例: 09_2550.png, 1000_00295.png, 104_2190.png, ...等)
+│       ├── convert_ttpla_to_v1.py
+│       ├── images/
+│       │   ├── train/
+│       │   │   └── [共1105个.jpg文件]
+│       │   │       (文件名示例: 04_2220.jpg, 04_3420.jpg, 04_585.jpg, ...等)
+│       │   └── val/
+│       │       └── [共91个.jpg文件]
+│       │           (文件名示例: 09_2550.jpg, 1000_00295.jpg, 104_2190.jpg, ...等)
+│       ├── line_mask/
+│       │   ├── train/
+│       │   │   └── [共1105个.png文件]
+│       │   │       (文件名示例: 04_2220.png, 04_3420.png, 04_585.png, ...等)
+│       │   └── val/
+│       │       └── [共91个.png文件]
+│       │           (文件名示例: 09_2550.png, 1000_00295.png, 104_2190.png, ...等)
+│       ├── orient/
+│       │   ├── train/
+│       │   │   └── [共1105个.npy文件]
+│       │   │       (文件名示例: 04_2220.npy, 04_3420.npy, 04_585.npy, ...等)
+│       │   └── val/
+│       │       └── [共91个.npy文件]
+│       │           (文件名示例: 09_2550.npy, 1000_00295.npy, 104_2190.npy, ...等)
+│       ├── splits/
+│       │   ├── debug_train.txt
+│       │   ├── train.txt
+│       │   └── val.txt
+│       └── splitting_dataset_txt/
+│           ├── test.txt
+│           ├── train.txt
+│           └── val.txt
+├── models/
+│   ├── __init__.py
+│   ├── __pycache__/
+│   │   └── [Python cache files]
+│   ├── heads/
+│   │   ├── __init__.py
+│   │   ├── __pycache__/
+│   │   │   └── [Python cache files]
+│   │   ├── centerline_head.py
+│   │   └── orientation_head.py
+│   ├── modules/
+│   │   ├── __init__.py
+│   │   ├── __pycache__/
+│   │   │   └── [Python cache files]
+│   │   └── shared_fusion.py
+│   └── segmentors/
+│       ├── __init__.py
+│       ├── __pycache__/
+│       │   └── [Python cache files]
+│       └── powerline_segmentor.py
+├── utils/
+│   ├── __init__.py
+│   └── postprocess.py
+└── visualization/
+    ├── __init__.py
+    └── powerline_visualizer.py
+
+
+文件统计信息
+============
+
+配置文件:
+  - configs/powerline_v1/: 2个.py文件
+
+项目代码文件:
+  - projects/powerline_v1/根目录: 1个.py文件 (__init__.py)
+  - datasets模块: 2个.py文件 (powerline_dataset.py, __init__.py)
+  - datasets/transforms: 4个.py文件 (formatting.py, geom_transforms.py, loading.py, __init__.py)
+  - datasets/TTPLA: 2个.py文件 (convert_ttpla_to_v1.py) + 9个.txt文件 (splits和splitting_dataset_txt中)
+  - models/heads: 3个.py文件 (centerline_head.py, orientation_head.py, __init__.py)
+  - models/modules: 2个.py文件 (shared_fusion.py, __init__.py)
+  - models/segmentors: 2个.py文件 (powerline_segmentor.py, __init__.py)
+  - utils: 2个.py文件 (postprocess.py, __init__.py)
+  - visualization: 2个.py文件 (powerline_visualizer.py, __init__.py)
+
+数据文件统计:
+  - center/train: 1105个.png文件
+  - center/val: 91个.png文件
+  - images/train: 1105个.jpg文件
+  - images/val: 91个.jpg文件
+  - line_mask/train: 1105个.png文件
+  - line_mask/val: 91个.png文件
+  - orient/train: 1105个.npy文件
+  - orient/val: 91个.npy文件
+  - splits: 3个.txt文件 (debug_train.txt, train.txt, val.txt)
+  - splitting_dataset_txt: 3个.txt文件 (test.txt, train.txt, val.txt)
+
+总计数据文件: 9068个文件 (主要是训练和验证数据)
+
+
+关键文件说明
+=============
+
+1. 配置文件:
+   - powerline_v1_r18_fpn.py: 基于ResNet18骨干网络和FPN的电力线分割配置
+   - powerline_v1_r18_fpn_debug.py: 调试版本的配置
+
+2. 核心模型文件:
+   - powerline_segmentor.py: 电力线分割主模型
+   - centerline_head.py: 中心线预测头
+   - orientation_head.py: 方向预测头
+   - shared_fusion.py: 共享特征融合模块
+
+3. 数据处理:
+   - powerline_dataset.py: 数据集加载和处理
+   - transforms: 数据增强和变换模块
+
+4. 数据集结构:
+   - center: 中心线注释
+   - line_mask: 线条掩码
+   - images: 原始图像
+   - orient: 方向信息
+   - splits: 数据集划分文件
+

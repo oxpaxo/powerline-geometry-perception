@@ -262,10 +262,6 @@ python tools/debug/inspect_aux_targets_and_preds.py \
 - [OpenMMLab / mmsegmentation](https://github.com/open-mmlab/mmsegmentation)
 - TTPLA 及相关输电线视觉感知研究工作
 
-## License
-
-当前 README 尚未最终确定许可证信息。若计划公开发布，请补充相应 `LICENSE` 文件。
-
 ## 说明
 
 该仓库处于持续开发过程中。部分模块已属于稳定主线，另一些模块仍处于研究探索或工程占位阶段。

@@ -1,6 +1,5 @@
 _base_ = ['./powerline_v1_segformer_b1.py']
 
-# Add distance auxiliary head to the model.
 model = dict(
     distance_head=dict(
         type='DistanceFieldHead',
@@ -12,9 +11,22 @@ model = dict(
         use_mask=True,
         loss_type='smooth_l1',
     ),
+    train_cfg=dict(
+        patch_global_teacher_cfg=dict(
+            num_theta_bins=12,
+            num_rho_bins=64,
+            angle_smooth_sigma_bins=1.25,
+            direction_peak_kernel_sigma_deg=8.0,
+            prior_blur_kernel=31,
+            prior_dilate_kernel=9,
+            prior_downsample_stride=1,
+            min_center_pixels=8,
+            cache_full_gt=True,
+        ),
+        debug_teacher_stats=False,
+    ),
 )
 
-# Enable online distance map generation in the data pipeline.
 train_pipeline = [
     dict(type='LoadImageFromFile'),
     dict(

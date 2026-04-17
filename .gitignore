@@ -115,6 +115,8 @@ tmpclaude-*
 *.pkl
 *.pkl.json
 *.log.json
+*.err
+*.out
 work_dirs/
 debug_vis/
 mmseg/.mim

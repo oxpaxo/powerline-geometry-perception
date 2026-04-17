@@ -28,6 +28,12 @@ test_dataloader = dict(
     ),
 )
 
+model = dict(
+    train_cfg=dict(
+        debug_teacher_stats=True,
+    ),
+)
+
 train_cfg = dict(
     type='IterBasedTrainLoop',
     max_iters=500,

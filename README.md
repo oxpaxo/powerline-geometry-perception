@@ -1,5 +1,7 @@
 # powerline-geometry-perception
 
+English | [简体中文](./README_zh-CN.md)
+
 A geometry-oriented visual perception frontend for power line localization and local line-direction understanding, built on top of **mmsegmentation**.
 
 ## Overview
@@ -255,10 +257,6 @@ The goal is a **power-line geometry perception frontend** that can later support
 
 - [OpenMMLab / mmsegmentation](https://github.com/open-mmlab/mmsegmentation)
 - TTPLA-related dataset and power-line perception research community
-
-## License
-
-License information has not been finalized in this README yet. Please add the appropriate license file before public release.
 
 ## Notes
 

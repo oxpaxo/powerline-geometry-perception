@@ -113,45 +113,6 @@ tools/
 work_dirs/
 ```
 
-## Important modules
-
-- `projects/powerline_v1/models/segmentors/powerline_segmentor.py`
-  - custom segmentor that stitches backbone / fusion / heads / inference together
-- `projects/powerline_v1/models/heads/centerline_head.py`
-- `projects/powerline_v1/models/heads/orientation_head.py`
-- `projects/powerline_v1/models/heads/distance_field_head.py`
-- `projects/powerline_v1/models/modules/shared_fusion.py`
-- `projects/powerline_v1/datasets/transforms/loading.py`
-- `projects/powerline_v1/datasets/transforms/geom_transforms.py`
-- `projects/powerline_v1/datasets/transforms/formatting.py`
-- `projects/powerline_v1/utils/geometric_verifier.py`
-
-## Current training / testing pipeline
-
-### Training
-
-Typical V2 training pipeline:
-
-```text
-LoadImageFromFile
--> LoadPowerLineAnnotations(generate_distance_map=True/False)
--> PowerLineRandomCrop
--> PowerLineRandomFlip
--> PackPowerLineInputs
-```
-
-### Testing
-
-Typical V2 testing pipeline:
-
-```text
-LoadImageFromFile
--> LoadPowerLineAnnotations(generate_distance_map=False)
--> PackPowerLineInputs
-```
-
-For large TTPLA images, testing is usually performed with **sliding-window inference**.
-
 ## Example commands
 
 ### V2 + distance auxiliary training

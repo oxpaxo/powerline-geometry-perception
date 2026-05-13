@@ -22,28 +22,6 @@
 - 复杂背景中相似直线结构的误检抑制
 - 为后续无人机沿线飞行 / 巡检决策提供几何感知输入
 
-## 当前主线（V2）
-
-当前稳定主线如下：
-
-```text
-Image Patch / Image
-  -> SegDataPreProcessor
-  -> SegFormer-B1 / MixVisionTransformer Encoder
-  -> SharedFusion
-  -> CenterHead
-  -> OrientationHead
-  -> DistanceFieldHead（辅助，仅训练期）
-  -> Slide / Whole Inference
-  -> Optional Geometric Verifier
-```
-
-### 主输出
-
-- **CenterHead**：二分类中心线预测（`background / wire-centerline`）
-- **OrientationHead**：二维局部方向场（`ox, oy`）
-- **DistanceFieldHead**：训练期几何辅助监督，用于约束特征学习
-
 ## 项目演变
 
 ### V1

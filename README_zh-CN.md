@@ -128,32 +128,6 @@ work_dirs/
 - `projects/powerline_v1/datasets/transforms/formatting.py`
 - `projects/powerline_v1/utils/geometric_verifier.py`
 
-## 当前训练 / 测试流程
-
-### 训练阶段
-
-典型 V2 训练 pipeline：
-
-```text
-LoadImageFromFile
--> LoadPowerLineAnnotations(generate_distance_map=True/False)
--> PowerLineRandomCrop
--> PowerLineRandomFlip
--> PackPowerLineInputs
-```
-
-### 测试阶段
-
-典型 V2 测试 pipeline：
-
-```text
-LoadImageFromFile
--> LoadPowerLineAnnotations(generate_distance_map=False)
--> PackPowerLineInputs
-```
-
-对于 TTPLA 这类大图，测试通常使用 **sliding-window inference**。
-
 ## 示例命令
 
 ### V2 + distance aux 训练

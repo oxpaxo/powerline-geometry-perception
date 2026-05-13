@@ -23,28 +23,6 @@ Power lines are:
 
 For this reason, the project is intentionally designed as a **geometry perception frontend** instead of a standard detector.
 
-## Current mainline (V2)
-
-The current stable mainline is:
-
-```text
-Image Patch / Image
-  -> SegDataPreProcessor
-  -> SegFormer-B1 / MixVisionTransformer Encoder
-  -> SharedFusion
-  -> CenterHead
-  -> OrientationHead
-  -> DistanceFieldHead (auxiliary, training-time)
-  -> Slide / Whole Inference
-  -> Optional Geometric Verifier
-```
-
-### Main outputs
-
-- **CenterHead**: binary centerline prediction (`background / wire-centerline`)
-- **OrientationHead**: 2-channel local tangent direction field (`ox, oy`)
-- **DistanceFieldHead**: auxiliary distance-to-centerline prediction used to regularize feature learning during training
-
 ## Evolution
 
 ### V1

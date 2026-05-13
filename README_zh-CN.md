@@ -115,19 +115,6 @@ tools/
 work_dirs/
 ```
 
-## 关键模块
-
-- `projects/powerline_v1/models/segmentors/powerline_segmentor.py`
-  - 自定义 segmentor，负责将 backbone / fusion / heads / inference 串联起来
-- `projects/powerline_v1/models/heads/centerline_head.py`
-- `projects/powerline_v1/models/heads/orientation_head.py`
-- `projects/powerline_v1/models/heads/distance_field_head.py`
-- `projects/powerline_v1/models/modules/shared_fusion.py`
-- `projects/powerline_v1/datasets/transforms/loading.py`
-- `projects/powerline_v1/datasets/transforms/geom_transforms.py`
-- `projects/powerline_v1/datasets/transforms/formatting.py`
-- `projects/powerline_v1/utils/geometric_verifier.py`
-
 ## 示例命令
 
 ### V2 + distance aux 训练
